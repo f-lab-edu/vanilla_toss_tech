@@ -1,0 +1,30 @@
+{
+  "name": "vanilla-toss-tech",
+  "version": "1.0.0",
+  "description": "vanilla-toss-tech",
+  "main": "index.js",
+  "author": "dev-khs",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --fix ./src",
+    "prettier:write": "prettier --write ./src",
+    "prettier:check": "prettier --check ./src",
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "parcel": "^2.12.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0"
+  }
+}

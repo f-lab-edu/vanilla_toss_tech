@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // 최신 자바스크립트 문법 사용
+    "lib": ["es2017", "DOM"], // ES2017 라이브러리 사용
+    "strict": true, // 엄격한 타입 검사
+    "experimentalDecorators": true, // 데코레이터 사용
+    "allowJs": true, // JavaScript 파일을 TypeScript에서 허용
+    "allowSyntheticDefaultImports": true, // 모듈 기본값 가져오기 허용
+    "esModuleInterop": true, // CommonJS와 ES 모듈 간 호환성
+    "isolatedModules": true, // 모듈 격리
+    "noImplicitAny": true, // 암시적 any 타입을 허용하지 않음
+    "noEmit": true, // 컴파일 결과를 생성하지 않음
+    "skipLibCheck": true, // `node_modules` 내부의 타입 선언 파일 검사를 생략
+    "useUnknownInCatchVariables": false, // try-catch에서 'unknown' 대신 'any' 사용
+    "baseUrl": ".", // 모듈 경로의 기준 경로 설정
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@constants/*": ["src/constants/*"],
+      "@utils/*": ["src/utils/*"],
+      "src/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.js"],
+  "exclude": ["node_modules", "dist", ".parcel-cache"]
+}
