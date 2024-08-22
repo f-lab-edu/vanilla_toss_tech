@@ -4,9 +4,15 @@ const HomePage = () => {
   const appElement = document.getElementById('app')
 
   if (appElement) {
-    return (appElement.innerHTML = `
-      <h1>Hello, ???</h1>
-    `)
+    appElement.innerHTML = `
+      <div>
+        <h1>Hello, World!</h1>
+      </div>
+    `
+  } else {
+    document.body.innerHTML = `
+      <h1>Default Content</h1>
+    `
   }
 }
 
