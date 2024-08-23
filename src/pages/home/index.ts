@@ -1,6 +1,6 @@
 import './index.css'
 
-const HomePage = () => {
+export const HomePage = () => {
   const appElement = document.getElementById('app')
 
   if (appElement) {
@@ -15,5 +15,3 @@ const HomePage = () => {
     `
   }
 }
-
-HomePage()

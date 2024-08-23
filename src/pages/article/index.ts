@@ -1,6 +1,6 @@
 import './index.css'
 
-const ArticlePage = () => {
+export const ArticlePage = () => {
   const appElement = document.getElementById('app')
 
   if (appElement) {
@@ -15,5 +15,3 @@ const ArticlePage = () => {
     `
   }
 }
-
-ArticlePage()
