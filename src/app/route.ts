@@ -30,6 +30,7 @@ const renderRoute = () => {
 // Navigation function.
 export const navigateTo = (path: string) => {
   window.history.pushState(null, '', path)
+  renderRoute()
 }
 
 renderRoute()
