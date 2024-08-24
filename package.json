@@ -9,11 +9,12 @@
     "lint": "eslint --fix ./src",
     "prettier:write": "prettier --write ./src",
     "prettier:check": "prettier --check ./src",
-    "dev": "parcel src/index.html",
+    "dev": "rm -rf .parcel-cache/ && rm -rf dist && parcel src/index.html",
     "build": "parcel build src/index.html"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/node": "^22.5.0",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
