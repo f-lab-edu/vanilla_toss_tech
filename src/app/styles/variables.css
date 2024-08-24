@@ -1,0 +1,16 @@
+:root {
+  --main-color: #3182f6;
+
+  --mono100: #ffffff;
+  --mono200: #f9fafb;
+  --mono300: #f2f4f6;
+  --mono400: #6b7684;
+  --mono500: #4e5968;
+  --mono600: #333d4b;
+  --mono700: #191f28;
+
+  --typography-bold-size: 20px;
+  --typography-medium-size: 17px;
+  --typography-regular-size: 15px;
+  --typography-small-size: 13px;
+}
