@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'TossFace';
+  src: url('../fonts/TossFaceFontMac.ttf') format('truetype');
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'TossFace';
+  background-color: #fff;
+}
