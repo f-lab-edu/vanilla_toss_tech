@@ -1,4 +1,4 @@
-import {navigateTo} from 'src/app/route'
+import {navigateTo} from 'src/app/routes/route'
 import './index.css'
 
 export const ArticlePage = () => {

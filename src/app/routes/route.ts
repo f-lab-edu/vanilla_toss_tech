@@ -1,6 +1,6 @@
-import {HomePage} from 'src/pages/home/index'
+import {HomePage} from 'src/pages/home/ui/index'
 import {Routes} from './types'
-import {ArticlePage} from 'src/pages/article/index'
+import {ArticlePage} from 'src/pages/article/ui/index'
 
 const routes: Routes[] = [
   {
