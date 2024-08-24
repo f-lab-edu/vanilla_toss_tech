@@ -9,7 +9,7 @@
     "lint": "eslint --fix ./src",
     "prettier:write": "prettier --write ./src",
     "prettier:check": "prettier --check ./src",
-    "dev": "rm -rf .parcel-cache/ && rm -rf dist && parcel src/index.html",
+    "dev": "parcel src/index.html",
     "build": "parcel build src/index.html"
   },
   "devDependencies": {
