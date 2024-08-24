@@ -1,56 +1,80 @@
 import {IMAGES} from 'src/app/assets/index'
 import './index.css'
+import {EXTERNAL_LINK} from './constants'
+import {Button} from './types'
 
-const TEXT_BUTTONS = ['SLASH', 'SIMPLICITY']
-const FILL_BUTTONS = ['구독하기', '채용 바로가기']
+const TEXT_BUTTONS: Button[] = [
+  {buttonText: 'SLASH', url: EXTERNAL_LINK.SLASH},
+  {buttonText: 'SIMPLICITY', url: EXTERNAL_LINK.SIMPLICITY},
+]
 
-const LogoTitle = () => {
+const PRIMARY_BUTTONS: Button[] = [
+  {buttonText: '구독하기', url: EXTERNAL_LINK.SUBSCRIBE},
+  {buttonText: '채용 바로가기', url: EXTERNAL_LINK.JOBS},
+]
+
+// LogoTitle component.
+const renderLogoTitle = () => {
   return `
     <div class="logoContainer">
-        <img class="navLogo" src="${IMAGES.LOGO}" />
-        <p class="textContainer">
-          <span>toss</span>
-          <span>tech</span>
-        </p>
+      <img class="logoImg" src="${IMAGES.LOGO}" />
+      <p class="logoText">
+        <span>toss</span>
+        <span>tech</span>
+      </p>
+    </div>
+  `
+}
+
+// TextButton component.
+const renderTextButton = ({buttonText, url}: Button) => {
+  return `
+    <div class="textButtonContainer">
+      <button class="textButton" type="button" data-url="${url}">
+          <span>${buttonText}</span>
+          <img class="linkIcon" src="${IMAGES.LINK}" />
+      </button>
+    </div>
+  `
+}
+
+// PrimaryButton component.
+const renderPrimaryButton = ({buttonText, url}: Button) => {
+  const buttonClass =
+    buttonText === '구독하기'
+      ? 'primaryButton subscribeButton'
+      : 'primaryButton'
+
+  return `
+    <div class="primaryButtonContainer">
+      <button class="${buttonClass}" type="button" data-url="${url}">
+        <span>${buttonText}</span>
+      </button>
+    </div>
+  `
+}
+
+// NavBar component.
+export const renderNavBar = () => {
+  return `
+    <nav class="navBar">
+      ${renderLogoTitle()}
+      <div class="buttonGroup">
+        ${TEXT_BUTTONS.map(ele => renderTextButton(ele)).join('')}
+        ${PRIMARY_BUTTONS.map(ele => renderPrimaryButton(ele)).join('')}
       </div>
-  `
-}
-
-const TextButton = (buttonText: string) => {
-  return `
-    <button type="button">${buttonText}</button>
-  `
-}
-
-const FillButton = (buttonText: string) => {
-  return `
-    <button type="button">${buttonText}</button>
-  `
-}
-
-const NavBar = () => {
-  return `
-    <nav class="navBarContainer">
-      ${LogoTitle()}
-      ${TEXT_BUTTONS.map(button => TextButton(button)).join('')}
-      ${FILL_BUTTONS.map(button => FillButton(button)).join('')}
     </nav>
   `
 }
 
-// 함수 정의
-const initializeApp = () => {
-  const appElement = document.getElementById('app')
-
-  if (appElement) {
-    appElement.innerHTML = `
-      ${NavBar()}
-    `
-  } else {
-    document.body.innerHTML = `
-      <h1>Default Content</h1>
-    `
-  }
+// Button handler.
+export const handleButtonClick = () => {
+  document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+      const dataUrl = button.getAttribute('data-url')
+      if (dataUrl) {
+        window.location.href = dataUrl
+      }
+    })
+  })
 }
-
-initializeApp()
