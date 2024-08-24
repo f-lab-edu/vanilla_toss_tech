@@ -1,0 +1,25 @@
+.navBarContainer {
+  width: 100%;
+  height: 60px;
+  padding: 0 55px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer {
+  width: 110px;
+  height: 24px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navLogo {
+  height: 100%;
+  object-fit: contain;
+}
+
+.textContainer {
+  margin-left: 4px;
+}
