@@ -1,5 +1,5 @@
 import {IMAGES} from 'src/app/assets/index'
-import './homeBanner.css'
+import './index.css'
 
 export const renderHomeBanner = () => {
   return `
