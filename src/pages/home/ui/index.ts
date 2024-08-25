@@ -1,8 +1,9 @@
 import './index.css'
 import {renderHomeBanner} from 'src/entities/home/ui/homeBanner/index'
-import {handleButtonClick, renderNavBar} from 'src/shared/ui/navBar/index'
+import {renderNavBar} from 'src/shared/ui/navBar/index'
 import {renderHomeArticlePreview} from 'src/entities/home/ui/homeArticleArticlePreview/index'
 import {MOCK_ARTICLES} from 'src/shared/api/mockData'
+import {navigateTo} from 'src/app/routes/route'
 
 export const HomePage = () => {
   const appElement = document.getElementById('app')
@@ -22,7 +23,17 @@ export const HomePage = () => {
       </section>
     `
 
-    handleButtonClick()
+    const handleArticleButton = () => {
+      MOCK_ARTICLES.forEach(article => {
+        const button = document.getElementById(`article-${article.id}`)
+        if (button) {
+          button.addEventListener('click', () => {
+            navigateTo(`/article/${article.id}`)
+          })
+        }
+      })
+    }
+    handleArticleButton()
   } else {
     document.body.innerHTML = `
       <h1>Default Content</h1>
