@@ -10,7 +10,7 @@ export const renderHomeArticlePreview = ({
 }: HomeArticlePreviewProps) => {
   return `
     <li class="articlePreview">
-      <button id="article-${id}" class="articleButton">
+      <button class="articleButton article-${id}">
         <img src="${imageUrl}" alt="${title}" />
         <h3>${title}</h3>
         <p>${content}</p>

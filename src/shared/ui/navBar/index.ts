@@ -1,5 +1,5 @@
-import {IMAGES} from 'src/app/assets/index'
 import './index.css'
+import {IMAGES} from 'src/app/assets/index'
 import {EXTERNAL_LINK} from './constants'
 import {Button} from './types'
 

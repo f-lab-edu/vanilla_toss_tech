@@ -7,7 +7,7 @@ export const MOCK_ARTICLES = [
     imageUrl: '이미지 01',
   },
   {
-    id: 1,
+    id: 2,
     title: 'Mock Title 02',
     content: 'Mock Content 02',
     date: '2024년 8월 25일',

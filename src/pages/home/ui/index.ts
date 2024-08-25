@@ -25,13 +25,13 @@ export const HomePage = () => {
 
     const handleArticleButton = () => {
       MOCK_ARTICLES.forEach(article => {
-        const buttons = document.querySelectorAll('.article')
+        const articleElement = document.querySelector(`.article-${article.id}`)
 
-        if (buttons) {
-          buttons.forEach(button => {
-            button.addEventListener('click', () => {
-              navigateTo(`/article/${article.id}`)
-            })
+        if (articleElement) {
+          articleElement.addEventListener('click', () => {
+            console.log('Article clicked')
+            console.log(article, '?')
+            navigateTo(`/article/${article.id}`)
           })
         }
       })
