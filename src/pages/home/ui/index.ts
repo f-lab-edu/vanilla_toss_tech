@@ -25,14 +25,18 @@ export const HomePage = () => {
 
     const handleArticleButton = () => {
       MOCK_ARTICLES.forEach(article => {
-        const button = document.getElementById(`article-${article.id}`)
-        if (button) {
-          button.addEventListener('click', () => {
-            navigateTo(`/article/${article.id}`)
+        const buttons = document.querySelectorAll('.article')
+
+        if (buttons) {
+          buttons.forEach(button => {
+            button.addEventListener('click', () => {
+              navigateTo(`/article/${article.id}`)
+            })
           })
         }
       })
     }
+
     handleArticleButton()
   } else {
     document.body.innerHTML = `
