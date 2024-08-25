@@ -1,23 +1,15 @@
-import {navigateTo} from 'src/app/routes/route'
 import './index.css'
+import {handleButtonClick, renderNavBar} from 'src/shared/navBar/ui/index'
 
 export const HomePage = () => {
   const appElement = document.getElementById('app')
 
   if (appElement) {
     appElement.innerHTML = `
-      <div>
-        <h1>Hello, World!</h1>
-        <button id="navigation">article로 이동하기</button>
-      </div>
+      ${renderNavBar()}
     `
 
-    const button = document.getElementById('navigation')
-    if (button) {
-      button.addEventListener('click', () => {
-        navigateTo('/article')
-      })
-    }
+    handleButtonClick()
   } else {
     document.body.innerHTML = `
       <h1>Default Content</h1>
