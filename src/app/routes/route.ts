@@ -15,6 +15,10 @@ const routes: Routes[] = [
 
 // Find the route that matches the current path.
 const findRoute = (path: string) => {
+  if (path.startsWith('/article/')) {
+    return {path, view: ArticlePage}
+  }
+
   return routes.find(route => route.path === path)
 }
 
