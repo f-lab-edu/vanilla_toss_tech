@@ -1,5 +1,6 @@
+import {renderHomeBanner} from 'src/entities/home/ui/homeBanner'
 import './index.css'
-import {handleButtonClick, renderNavBar} from 'src/shared/navBar/ui/index'
+import {handleButtonClick, renderNavBar} from 'src/shared/ui/navBar/index'
 
 export const HomePage = () => {
   const appElement = document.getElementById('app')
@@ -7,6 +8,9 @@ export const HomePage = () => {
   if (appElement) {
     appElement.innerHTML = `
       ${renderNavBar()}
+      <section class="homeSection">
+        ${renderHomeBanner()}
+      </section>
     `
 
     handleButtonClick()
