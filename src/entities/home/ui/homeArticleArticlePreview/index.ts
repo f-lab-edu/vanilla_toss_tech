@@ -11,10 +11,14 @@ export const renderHomeArticlePreview = ({
   return `
     <li class="articlePreview">
       <button class="articleButton article-${id}">
-        <img src="${imageUrl}" alt="${title}" />
-        <h3>${title}</h3>
-        <p>${content}</p>
-        <span>${date}</span>
+        <p class="textGroup">
+          <span class="title">${title}</span>
+          <span class="content">${content}</span>
+          <span class="date">${date}</span>
+        </p>
+        <div class="imageContainer">
+          <img class="thumbnailImg" src="${imageUrl}" alt="thumbnailImg" />
+        </div>
       </button>
     </li>
   `

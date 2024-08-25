@@ -21,3 +21,8 @@ li {
 section {
   padding-top: 60px;
 }
+
+button {
+  background-color: transparent;
+  border: 0;
+}
