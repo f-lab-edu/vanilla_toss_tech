@@ -1,9 +1,11 @@
 import './index.css'
 import {renderHomeBanner} from 'src/entities/home/ui/homeBanner/index'
 import {renderNavBar} from 'src/shared/ui/navBar/index'
-import {renderHomeArticlePreview} from 'src/entities/home/ui/homeArticleArticlePreview/index'
-import {MOCK_ARTICLES} from 'src/shared/api/mockData'
-import {navigateTo} from 'src/app/routes/route'
+import {
+  handleArticleButton,
+  handleTabClick,
+  renderArticleTab,
+} from 'src/widgets/ArticleTab/index'
 
 export const HomePage = () => {
   const appElement = document.getElementById('app')
@@ -15,7 +17,7 @@ export const HomePage = () => {
         ${renderHomeBanner()}
         <article class="article">
           <ul class="mainArticleContainer">
-            ${MOCK_ARTICLES.map(article => renderHomeArticlePreview(article)).join('')}
+            ${renderArticleTab()}
           </ul>
           <ul class="subArticleContainer">
           </ul>
@@ -23,20 +25,7 @@ export const HomePage = () => {
       </section>
     `
 
-    const handleArticleButton = () => {
-      MOCK_ARTICLES.forEach(article => {
-        const articleElement = document.querySelector(`.article-${article.id}`)
-
-        if (articleElement) {
-          articleElement.addEventListener('click', () => {
-            console.log('Article clicked')
-            console.log(article, '?')
-            navigateTo(`/article/${article.id}`)
-          })
-        }
-      })
-    }
-
+    handleTabClick()
     handleArticleButton()
   } else {
     document.body.innerHTML = `
