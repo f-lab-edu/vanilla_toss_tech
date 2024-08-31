@@ -25,6 +25,7 @@ export const HomePage = () => {
         </article>
       </section>
     `
+
     renderInitialArticles()
     handleTabClick()
     handleArticleButton()
