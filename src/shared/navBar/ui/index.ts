@@ -43,10 +43,12 @@ const renderPrimaryButton = ({
   buttonText,
   url,
   variant = 'default',
+  disabled = false,
+  type = 'button',
 }: Button) => {
   return `
     <div class="primaryButtonContainer">
-      <button class="primaryButton ${variant}" type="button" data-url="${url}">
+      <button class="primaryButton ${variant}" type=${type} data-url="${url}" disabled=${disabled}>
         <span>${buttonText}</span>
       </button>
     </div>
