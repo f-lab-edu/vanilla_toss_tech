@@ -60,9 +60,6 @@ export const renderArticleTab = () => {
     <div class="tabContainer">
       ${TABS.map(tab => renderArticleTabButton(tab)).join('')}
     </div>
-    <div class="articlesContainer">
-      ${renderArticles(MOCK_ARTICLES.slice(0, 2))}
-    </div>
   `
 }
 
@@ -75,7 +72,10 @@ export const loadInitialArticles = () => {
   const initialArticles = MOCK_ARTICLES.slice(0, initialArticlePage)
   const container = document.querySelector('.mainArticleContainer')
   if (container) {
-    container.innerHTML = renderArticles(initialArticles)
+    container.innerHTML = `
+      ${renderArticleTab()}
+      ${renderArticles(initialArticles)}
+    `
   }
 }
 
