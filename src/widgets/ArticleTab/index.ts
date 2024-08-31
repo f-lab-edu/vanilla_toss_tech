@@ -1,7 +1,7 @@
 import './index.css'
 import {MOCK_ARTICLES, MockArticle} from 'src/shared/api/mockData'
 import {navigateTo} from 'src/app/routes/route'
-import {renderHomeArticlePreview} from 'src/entities/home/ui/homeArticleArticlePreview/index'
+import {renderHomeArticlePreview} from 'src/entities/home/ui/homeArticlePreview/index'
 
 const TABS = ['전체', '개발', '디자인']
 
