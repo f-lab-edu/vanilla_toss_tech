@@ -5,6 +5,7 @@ import {
   handleArticleButton,
   handleTabClick,
   renderArticleTab,
+  renderInitialArticles,
 } from 'src/widgets/ArticleTab/index'
 
 export const HomePage = () => {
@@ -24,7 +25,7 @@ export const HomePage = () => {
         </article>
       </section>
     `
-
+    renderInitialArticles()
     handleTabClick()
     handleArticleButton()
   } else {
