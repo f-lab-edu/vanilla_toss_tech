@@ -12,8 +12,3 @@
   color: var(--mono400);
   cursor: pointer;
 }
-
-.scrollSentinel {
-  height: 1px;
-  margin: 0;
-}

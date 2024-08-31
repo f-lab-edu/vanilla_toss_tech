@@ -67,11 +67,12 @@ export const renderArticleTab = () => {
 }
 
 let currentPage = 1
-const articlesPerPage = 2 // 한 번에 로드할 아티클 수
+const initialArticlePage = 6
+const articlesPerPage = 2
 const totalArticles = MOCK_ARTICLES.length
 
 export const loadInitialArticles = () => {
-  const initialArticles = MOCK_ARTICLES.slice(0, articlesPerPage)
+  const initialArticles = MOCK_ARTICLES.slice(0, initialArticlePage)
   const container = document.querySelector('.mainArticleContainer')
   if (container) {
     container.innerHTML = renderArticles(initialArticles)
@@ -90,27 +91,19 @@ const loadMoreArticles = () => {
   }
 }
 
-export const setupIntersectionObserver = () => {
-  const observerOptions = {
-    root: null, // viewport를 root로 설정
-    rootMargin: '0px',
-    threshold: 1.0,
-  }
+const handleScroll = () => {
+  const scrollContainer = document.documentElement // 또는 document.body
 
-  const observerCallback: IntersectionObserverCallback = entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        if (currentPage * articlesPerPage < totalArticles) {
-          loadMoreArticles()
-        }
-      }
-    })
+  if (
+    scrollContainer.scrollTop + scrollContainer.clientHeight >=
+    scrollContainer.scrollHeight
+  ) {
+    if (currentPage * articlesPerPage < totalArticles) {
+      loadMoreArticles()
+    }
   }
+}
 
-  const observer = new IntersectionObserver(observerCallback, observerOptions)
-  const sentinel = document.querySelector('.scrollSentinel')
-
-  if (sentinel) {
-    observer.observe(sentinel)
-  }
+export const setupScrollEventListener = () => {
+  window.addEventListener('scroll', handleScroll)
 }

@@ -5,7 +5,7 @@ import {
   handleArticleButton,
   handleTabClick,
   loadInitialArticles,
-  setupIntersectionObserver,
+  setupScrollEventListener,
 } from 'src/widgets/ArticleTab/index'
 
 export const HomePage = () => {
@@ -29,10 +29,8 @@ export const HomePage = () => {
     handleTabClick()
     handleArticleButton()
 
-    // Load initial articles
     loadInitialArticles()
-
-    setupIntersectionObserver()
+    setupScrollEventListener()
   } else {
     document.body.innerHTML = `
       <h1>Default Content</h1>
