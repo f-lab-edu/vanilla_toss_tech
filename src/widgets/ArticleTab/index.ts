@@ -61,7 +61,56 @@ export const renderArticleTab = () => {
       ${TABS.map(tab => renderArticleTabButton(tab)).join('')}
     </div>
     <div class="articlesContainer">
-      ${renderArticles(MOCK_ARTICLES)}
+      ${renderArticles(MOCK_ARTICLES.slice(0, 2))}
     </div>
   `
+}
+
+let currentPage = 1
+const articlesPerPage = 2 // 한 번에 로드할 아티클 수
+const totalArticles = MOCK_ARTICLES.length
+
+export const loadInitialArticles = () => {
+  const initialArticles = MOCK_ARTICLES.slice(0, articlesPerPage)
+  const container = document.querySelector('.mainArticleContainer')
+  if (container) {
+    container.innerHTML = renderArticles(initialArticles)
+  }
+}
+
+const loadMoreArticles = () => {
+  const startIndex = currentPage * articlesPerPage
+  const endIndex = startIndex + articlesPerPage
+  const nextArticles = MOCK_ARTICLES.slice(startIndex, endIndex)
+
+  const container = document.querySelector('.mainArticleContainer')
+  if (container && nextArticles.length > 0) {
+    container.innerHTML += renderArticles(nextArticles)
+    currentPage++
+  }
+}
+
+export const setupIntersectionObserver = () => {
+  const observerOptions = {
+    root: null, // viewport를 root로 설정
+    rootMargin: '0px',
+    threshold: 1.0,
+  }
+
+  const observerCallback: IntersectionObserverCallback = entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (currentPage * articlesPerPage < totalArticles) {
+          loadMoreArticles()
+        }
+      }
+    })
+  }
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions)
+  const sentinel = document.querySelector('.scrollSentinel')
+
+  if (sentinel) {
+    observer.observe(sentinel)
+  }
 }

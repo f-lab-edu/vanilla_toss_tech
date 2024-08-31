@@ -4,7 +4,8 @@ import {renderNavBar} from 'src/shared/ui/navBar/index'
 import {
   handleArticleButton,
   handleTabClick,
-  renderArticleTab,
+  loadInitialArticles,
+  setupIntersectionObserver,
 } from 'src/widgets/ArticleTab/index'
 
 export const HomePage = () => {
@@ -17,16 +18,21 @@ export const HomePage = () => {
         ${renderHomeBanner()}
         <article class="article">
           <ul class="mainArticleContainer">
-            ${renderArticleTab()}
           </ul>
           <ul class="subArticleContainer">
           </ul>
+          <div class="scrollSentinel"></div>
         </article>
       </section>
     `
 
     handleTabClick()
     handleArticleButton()
+
+    // Load initial articles
+    loadInitialArticles()
+
+    setupIntersectionObserver()
   } else {
     document.body.innerHTML = `
       <h1>Default Content</h1>

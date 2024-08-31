@@ -21,6 +21,8 @@ export const ArticlePage = () => {
         </article>
       </section>
     `
+
+    history.scrollRestoration = 'auto'
   } else {
     document.body.innerHTML = `
       <h1>Default Content</h1>
