@@ -13,7 +13,24 @@ const PRIMARY_BUTTONS: Button[] = [
   {buttonText: '채용 바로가기', url: EXTERNAL_LINK.JOBS},
 ]
 
-// LogoTitle component.
+const renderButton = ({buttonText, url}: Button, type: 'text' | 'primary') => {
+  const buttonClass =
+    type === 'primary'
+      ? buttonText === '구독하기'
+        ? 'primaryButton subscribeButton'
+        : 'primaryButton'
+      : 'textButton'
+
+  return `
+    <div class="${type}ButtonContainer">
+      <button class="${buttonClass}" type="button" data-url="${url}">
+        <span>${buttonText}</span>
+        ${type === 'text' ? `<img class="linkIcon" src="${IMAGES.LINK}" />` : ''}
+      </button>
+    </div>
+  `
+}
+
 const renderLogoTitle = () => {
   return `
     <div class="logoContainer">
@@ -26,48 +43,18 @@ const renderLogoTitle = () => {
   `
 }
 
-// TextButton component.
-const renderTextButton = ({buttonText, url}: Button) => {
-  return `
-    <div class="textButtonContainer">
-      <button class="textButton" type="button" data-url="${url}">
-          <span>${buttonText}</span>
-          <img class="linkIcon" src="${IMAGES.LINK}" />
-      </button>
-    </div>
-  `
-}
-
-// PrimaryButton component.
-const renderPrimaryButton = ({buttonText, url}: Button) => {
-  const buttonClass =
-    buttonText === '구독하기'
-      ? 'primaryButton subscribeButton'
-      : 'primaryButton'
-
-  return `
-    <div class="primaryButtonContainer">
-      <button class="${buttonClass}" type="button" data-url="${url}">
-        <span>${buttonText}</span>
-      </button>
-    </div>
-  `
-}
-
-// NavBar component.
 export const renderNavBar = () => {
   return `
     <nav class="navBar">
       ${renderLogoTitle()}
       <div class="buttonGroup">
-        ${TEXT_BUTTONS.map(ele => renderTextButton(ele)).join('')}
-        ${PRIMARY_BUTTONS.map(ele => renderPrimaryButton(ele)).join('')}
+        ${TEXT_BUTTONS.map(ele => renderButton(ele, 'text')).join('')}
+        ${PRIMARY_BUTTONS.map(ele => renderButton(ele, 'primary')).join('')}
       </div>
     </nav>
   `
 }
 
-// Button handler.
 export const handleButtonClick = () => {
   document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
