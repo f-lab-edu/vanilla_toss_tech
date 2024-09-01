@@ -1,6 +1,6 @@
 import './index.css'
 import {renderHomeBanner} from 'src/entities/home/ui/homeBanner/index'
-import {renderNavBar} from 'src/shared/ui/navBar/index'
+import {handleNavButtonClick, renderNavBar} from 'src/shared/ui/navBar/index'
 import {
   handleArticleButton,
   handleTabClick,
@@ -29,6 +29,7 @@ export const HomePage = () => {
     renderInitialArticles()
     handleTabClick()
     handleArticleButton()
+    handleNavButtonClick()
   } else {
     document.body.innerHTML = `
       <h1>Default Content</h1>
