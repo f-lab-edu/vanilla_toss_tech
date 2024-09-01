@@ -1,5 +1,5 @@
-import {IMAGES} from 'src/app/assets/index'
 import './index.css'
+import {IMAGES} from 'src/app/assets/index'
 import {EXTERNAL_LINK} from './constants'
 import {Button} from './types'
 
@@ -10,7 +10,7 @@ const TEXT_BUTTONS: Button[] = [
 
 const PRIMARY_BUTTONS: Button[] = [
   {buttonText: '구독하기', url: EXTERNAL_LINK.SUBSCRIBE},
-  {buttonText: '채용 바로가기', url: EXTERNAL_LINK.JOBS},
+  {buttonText: '채용 바로가기', url: EXTERNAL_LINK.JOBS, variant: 'subscribe'},
 ]
 
 // LogoTitle component.
@@ -39,15 +39,16 @@ const renderTextButton = ({buttonText, url}: Button) => {
 }
 
 // PrimaryButton component.
-const renderPrimaryButton = ({buttonText, url}: Button) => {
-  const buttonClass =
-    buttonText === '구독하기'
-      ? 'primaryButton subscribeButton'
-      : 'primaryButton'
-
+const renderPrimaryButton = ({
+  buttonText,
+  url,
+  variant = 'default',
+  disabled = false,
+  type = 'button',
+}: Button) => {
   return `
     <div class="primaryButtonContainer">
-      <button class="${buttonClass}" type="button" data-url="${url}">
+      <button class="primaryButton ${variant}" type=${type} data-url="${url}" disabled=${disabled}>
         <span>${buttonText}</span>
       </button>
     </div>
