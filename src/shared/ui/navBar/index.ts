@@ -13,7 +13,6 @@ const PRIMARY_BUTTONS: Button[] = [
   {buttonText: '채용 바로가기', url: EXTERNAL_LINK.JOBS},
 ]
 
-// LogoTitle component.
 const renderLogoTitle = () => {
   return `
     <div class="logoContainer">
@@ -26,7 +25,6 @@ const renderLogoTitle = () => {
   `
 }
 
-// TextButton component.
 const renderTextButton = ({buttonText, url}: Button) => {
   return `
     <div class="textButtonContainer">
@@ -38,7 +36,6 @@ const renderTextButton = ({buttonText, url}: Button) => {
   `
 }
 
-// PrimaryButton component.
 const renderPrimaryButton = ({buttonText, url}: Button) => {
   const buttonClass =
     buttonText === '구독하기'
@@ -54,7 +51,6 @@ const renderPrimaryButton = ({buttonText, url}: Button) => {
   `
 }
 
-// NavBar component.
 export const renderNavBar = () => {
   return `
     <nav class="navBar">
@@ -67,7 +63,6 @@ export const renderNavBar = () => {
   `
 }
 
-// Button handler.
 export const handleButtonClick = () => {
   document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
