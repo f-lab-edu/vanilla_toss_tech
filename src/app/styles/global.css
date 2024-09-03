@@ -10,3 +10,19 @@ body {
   font-family: 'TossFace', Arial, Helvetica, sans-serif;
   background-color: #fff;
 }
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  padding-top: 60px;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+}

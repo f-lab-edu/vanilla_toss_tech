@@ -1,23 +1,32 @@
-import {navigateTo} from 'src/app/routes/route'
 import './index.css'
+import {renderHomeBanner} from 'src/entities/home/ui/homeBanner/index'
+import {renderNavBar} from 'src/shared/ui/navBar/index'
+import {
+  handleArticleButton,
+  handleTabClick,
+  renderArticleTab,
+} from 'src/widgets/ArticleTab/index'
 
 export const HomePage = () => {
   const appElement = document.getElementById('app')
 
   if (appElement) {
     appElement.innerHTML = `
-      <div>
-        <h1>Hello, World!</h1>
-        <button id="navigation">article로 이동하기</button>
-      </div>
+      ${renderNavBar()}
+      <section class="homeSection">
+        ${renderHomeBanner()}
+        <article class="article">
+          <ul class="mainArticleContainer">
+            ${renderArticleTab()}
+          </ul>
+          <ul class="subArticleContainer">
+          </ul>
+        </article>
+      </section>
     `
 
-    const button = document.getElementById('navigation')
-    if (button) {
-      button.addEventListener('click', () => {
-        navigateTo('/article')
-      })
-    }
+    handleTabClick()
+    handleArticleButton()
   } else {
     document.body.innerHTML = `
       <h1>Default Content</h1>

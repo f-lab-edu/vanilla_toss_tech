@@ -13,4 +13,9 @@
   --typography-medium-size: 17px;
   --typography-regular-size: 15px;
   --typography-small-size: 13px;
+
+  --typography-weight-bold: bold;
+  --typography-weight-semibold: 600;
+  --typography-weight-medium: 500;
+  --typography-weight-regular: normal;
 }

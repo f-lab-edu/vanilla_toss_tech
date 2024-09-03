@@ -1,23 +1,26 @@
-import {navigateTo} from 'src/app/routes/route'
 import './index.css'
+import {renderNavBar} from 'src/shared/ui/navBar/index'
+import {MOCK_ARTICLES} from 'src/shared/api/mockData'
 
 export const ArticlePage = () => {
+  const articleId = window.location.pathname.split('/').pop()
+  const article = MOCK_ARTICLES.find(
+    article => article.id === Number(articleId),
+  )
   const appElement = document.getElementById('app')
 
-  if (appElement) {
+  if (article && appElement) {
     appElement.innerHTML = `
-      <div>
-        <h1>Hello, I'm Article!</h1>
-        <button id="navigation">home으로 돌아가기</button>
-      </div>
+    ${renderNavBar()}
+      <section>
+        <article>
+          <h1>${article.title}</h1>
+          <p>${article.content}</p>
+          <span>${article.date}</span>
+          <img src="${article.imageUrl}" alt="${article.title}" />
+        </article>
+      </section>
     `
-
-    const button = document.getElementById('navigation')
-    if (button) {
-      button.addEventListener('click', () => {
-        navigateTo('/')
-      })
-    }
   } else {
     document.body.innerHTML = `
       <h1>Default Content</h1>
