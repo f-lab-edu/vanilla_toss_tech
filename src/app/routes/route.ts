@@ -18,32 +18,15 @@ const findRoute = (path: string) => {
   return routes.find(route => route.path === path)
 }
 
-const clearCurrentView = () => {
-  const appElement = document.getElementById('app');
-
-  if (appElement) {
-    console.log('clear')
-    appElement.innerHTML = '';
-  }
-}
-
-
 // Render route.
 const renderRoute = () => {
-  let currentView: (() => void) | undefined = undefined;
-  const route = findRoute(window.location.pathname);
-
-  if (currentView) {
-    clearCurrentView();
-  }
+  const route = findRoute(window.location.pathname)
 
   if (route) {
-    currentView = route.view;
-    currentView();
-  } else {
-    HomePage()
+    route.view()
   }
 }
+
 // Navigation function.
 export const navigateTo = (path: string) => {
   window.history.pushState(null, '', path)
