@@ -1,0 +1,15 @@
+.bannerContainer {
+  width: 100%;
+  max-width: 1050px;
+  background-color: #222946;
+  margin: 24px 0px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.homeBanner {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+}

@@ -1,0 +1,14 @@
+.tabContainer {
+  width: 100%;
+  height: 47px;
+  border-bottom: 1px solid var(--mono300);
+  display: flex;
+  align-items: center;
+}
+
+.tabButton {
+  padding: 10px 20px;
+  font-size: var(--typography-medium-size);
+  color: var(--mono400);
+  cursor: pointer;
+}
