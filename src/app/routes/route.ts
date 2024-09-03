@@ -22,15 +22,31 @@ const findRoute = (path: string) => {
   return routes.find(route => route.path === path)
 }
 
-// Render route.
-const renderRoute = () => {
-  const route = findRoute(window.location.pathname)
+const clearCurrentView = () => {
+  const appElement = document.getElementById('app')
 
-  if (route) {
-    route.view()
+  if (appElement) {
+    console.log('clear')
+    appElement.innerHTML = ''
   }
 }
 
+// Render route.
+const renderRoute = () => {
+  let currentView: (() => void) | undefined = undefined
+  const route = findRoute(window.location.pathname)
+
+  if (currentView) {
+    clearCurrentView()
+  }
+
+  if (route) {
+    currentView = route.view
+    currentView()
+  } else {
+    HomePage()
+  }
+}
 // Navigation function.
 export const navigateTo = (path: string) => {
   window.history.pushState(null, '', path)
